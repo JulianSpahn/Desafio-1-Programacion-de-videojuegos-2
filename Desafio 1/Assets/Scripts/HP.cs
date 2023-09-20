@@ -11,18 +11,32 @@ public class HP : MonoBehaviour
     {
         vida += puntos;
         Debug.Log(EstasVivo());
+        if (!EstasVivo())
+        {
+            Debug.Log("Perdiste");
+        }
     }
 
 
     private bool EstasVivo()
     {
-        return vida > 0;
+        return vida >= 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Meta")) { return; }
 
-        Debug.Log("GANASTE");
+        if (vida>=0)
+        {
+            Debug.Log("GANASTE");
+        }
+        else
+        {
+            Debug.Log("Perdiste");
+        }
+        
+
+
     }
 }

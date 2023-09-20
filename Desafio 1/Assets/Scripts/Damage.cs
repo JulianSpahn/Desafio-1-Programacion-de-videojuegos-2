@@ -17,4 +17,5 @@ public class Damage : MonoBehaviour
             Debug.Log(" PUNTOS DE DAÑO REALIZADOS AL JUGADOR " + puntos);
         }
     }
+
 }
