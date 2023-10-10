@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    // Variables a configurar desde el editor
-    [Header("Configuracion")]
-    [SerializeField] float velocidad = 5f;
 
     // Variables de uso interno en el script
     private float moverHorizontal;
@@ -17,6 +14,7 @@ public class Move : MonoBehaviour
     private Animator miAnimator;
     private SpriteRenderer miSprite;
     private BoxCollider2D miCollider2D;
+    private HP jugador;
 
     private int saltarMask;
 
@@ -28,6 +26,7 @@ public class Move : MonoBehaviour
         miSprite = GetComponent<SpriteRenderer>();
         miCollider2D = GetComponent<BoxCollider2D>();
         saltarMask = LayerMask.GetMask("Pisos y Paredes", "Plataformas");
+        jugador= GetComponent<HP>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -43,7 +42,7 @@ public class Move : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        miRigidbody2D.AddForce(direccion * velocidad);
+        miRigidbody2D.AddForce(direccion * jugador.PerfilJugador.VelocidadHorizontal);
     }
 
     private bool EnContactoConPlataforma()
