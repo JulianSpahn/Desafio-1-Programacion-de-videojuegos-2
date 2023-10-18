@@ -5,7 +5,7 @@ using UnityEngine;
 public class Heal : MonoBehaviour
 {
     [Header("Configuracion")]
-    [SerializeField] float puntos = 1f;
+    [SerializeField] int puntos = 1;
 
     private void OnParticleCollision(GameObject other)
     {
