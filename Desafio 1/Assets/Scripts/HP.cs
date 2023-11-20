@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class HP : MonoBehaviour
         if (!EstasVivo())
         {
             Debug.Log("Perdiste");
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -45,10 +47,12 @@ public class HP : MonoBehaviour
         if (perfilJugador.Vida>=0)
         {
             Debug.Log("GANASTE");
+            SceneManager.LoadScene(3);
         }
         else
         {
             Debug.Log("Perdiste");
+            SceneManager.LoadScene(2);
         }
         
 
